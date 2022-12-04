@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const mongoose = require("mongoose");
-const { PORT, mongoURI } = require("./config.js");
+const { PORT, mongoURI, hostUrl } = require("./config.js");
 // routes
 const Player = require("./routes/api/player");
 const Elf = require("./routes/api/elf");
@@ -15,13 +15,17 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-app.use(
-  cors()
-  // {
-  //   origin: "http://localhost:8080",
-  //   credentials: true,
-  // }
-);
+// hostUrl is the url of the frontend
+app.use(cors({ origin: hostUrl }));
+
+// app.use(
+//   cors()
+//   // {
+//   //   origin: "http://localhost:8080",
+//   //   credentials: true,
+//   // }
+// );
+
 // use tiny to log only the request method and the status code
 app.use(morgan("tiny"));
 app.use(bodyParser.json());
