@@ -15,18 +15,29 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-app.use(cors());
+app.use(
+  cors()
+  // {
+  //   origin: "http://localhost:8080",
+  //   credentials: true,
+  // }
+);
 // use tiny to log only the request method and the status code
 app.use(morgan("tiny"));
 app.use(bodyParser.json());
 
+// check if we are in production mode
 if (process.env.NODE_ENV === "production") {
-  // Serve any static files
   app.use(express.static("client/dist"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
   });
 }
+
+// test if server is running and connected to mongoDB
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 // app.get("/", (req, res) => {
 //   res.send("Hello World!");
@@ -51,5 +62,5 @@ mongoose
   .catch((err) => console.log(err));
 
 app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`);
+  console.log(`Example app listening at ${PORT}`);
 });
