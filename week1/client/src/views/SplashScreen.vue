@@ -13,16 +13,12 @@ export default {
   async mounted() {
     try {
       const response = await axios.get("api/highScore");
-      this.highScores = response.data;
+      this.highScores = response.data
+        .sort((a, b) => a.timeTaken - b.timeTaken)
+        .slice(0, 10);
     } catch (error) {
       console.log(error);
     }
-
-    // sort the high scores by time taken
-    this.highScores.sort((a, b) => a.timeTaken - b.timeTaken);
-
-    // only show the top 10 scores
-    this.highScores = this.highScores.slice(0, 10);
   },
 
   methods: {
