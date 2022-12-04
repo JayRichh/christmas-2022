@@ -6,7 +6,7 @@ module.exports = {
       proxy: {
         "/api": {
           target: 
-            "http://localhost:3000",
+            "https://638d20c61c52d87459600b90--soft-cendol-429c0f.netlify.app",
         },
       },
     },
