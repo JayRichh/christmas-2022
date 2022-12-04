@@ -9,13 +9,13 @@
 
 ## Technologies Used
 
-- Vue.js - version 2.6.11
-- Node.js - version 12.18.3
-- Express - version 4.17.1
+- Vue.js - version 3.2.13
+- Node.js - version 19.0.0
+- Express - version 4.18.2
 - MongoDB - version 4.2.8
-- Mongoose - version 5.10.2
-- Axios - version 0.21.0
-- Vue-Router - version 3.2.0
+- Mongoose - version 6.7.5
+- Axios - version 1.2.0
+- Vue-Router - version 4.1.6
 
 ## Features
 
