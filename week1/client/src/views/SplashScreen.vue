@@ -12,7 +12,7 @@ export default {
   },
 
   async mounted() {
-    const response = await axios.get("http://localhost:3000/api/highScore");
+    const response = await axios.get("api/highScore");
 
     this.highScores = response.data
       .sort((a, b) => a.timeTaken - b.timeTaken)

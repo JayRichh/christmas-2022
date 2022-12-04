@@ -17,7 +17,7 @@ export default {
 
   async mounted() {
     // hit the API endpoint to wake the elves up
-    const response = await axios.get("http://localhost:3000/api/elf");
+    const response = await axios.get("api/elf");
     // set the elves data in the above array
     this.elves = response.data;
     console.log(this.elves);

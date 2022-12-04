@@ -22,12 +22,10 @@ app.use(morgan("tiny"));
 app.use(bodyParser.json());
 
 // check if we are in production mode
-if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/dist"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
   });
-}
 
 // test if server is running and connected to mongoDB
 app.get("/", (req, res) => {

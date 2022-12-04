@@ -45,7 +45,7 @@ export default {
       // poast the score to the database then redirect to the splash screen
       if (this.name !== "") {
         try {
-          await axios.post("http://localhost:3000/api/highScore", {
+          await axios.post("api/highScore", {
             name: this.name,
             timeTaken: this.timeTaken,
           });
