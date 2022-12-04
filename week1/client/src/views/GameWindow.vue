@@ -91,8 +91,8 @@ export default {
   <div class="game-window">
     <nav>
       <h3>Find the elves!</h3>
-        <h4 class="timer">Time: {{ timer }}</h4>
-        <h4>Elves remaining: {{ elvesRemaining }}</h4>
+      <h4 class="timer">Time: {{ timer }}</h4>
+      <h4>Elves remaining: {{ elvesRemaining }}</h4>
       <div>
         <button @click="$router.push('/')">Restart</button>
       </div>
@@ -105,19 +105,6 @@ export default {
       @cancel="cancel"
       :timeTaken="timeTaken"
     />
-
-    <!-- <vue-final-modal v-if="show" @close="show = false">
-      <div class="modal">
-        <h2>Game Over!</h2>
-        <h3>Time taken: {{ timer }}</h3>
-        <form @submit.prevent="confirm">
-          <label for="name">Name:</label>
-          <input type="text" id="name" v-model="name" />
-          <button type="submit">Submit</button>
-        </form>
-        <button @click="cancel">Cancel</button>
-      </div>
-    </vue-final-modal> -->
 
     <div class="game-window__container">
       <!-- // img req bg image for the game -->
