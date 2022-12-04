@@ -1,6 +1,5 @@
 // const { defineConfig } = require("@vue/cli-service");
 module.exports = {
-  runtimeCompiler: true,
   configureWebpack: {
     devServer: {
       proxy: {
