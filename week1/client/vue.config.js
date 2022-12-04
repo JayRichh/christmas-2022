@@ -4,7 +4,7 @@ module.exports = {
     devServer: {
       proxy: {
         "/api": {
-          target: "http://localhost:3000",
+          target: "elf-gp9m-1j4cyf3jf-jayrichh.vercel.app",
         },
       },
     },
