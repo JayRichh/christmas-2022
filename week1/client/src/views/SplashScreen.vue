@@ -11,15 +11,12 @@ export default {
   },
 
   async mounted() {
-    const response = await axios.get("api/highScore");
+    const response = await axios.get("api/highScore/");
     console.log(response.data);
 
     let scoreData = await response.data;
 
     // fix the .sort method TypeError: n.sort is not a function
-
-
-
     this.highScores = scoreData.sort((a, b) => a.timeTaken - b.timeTaken).slice(0, 10);
   },
 
