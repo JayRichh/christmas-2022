@@ -11,13 +11,18 @@ export default {
   },
 
   async mounted() {
-    const response = await axios.get("api/highScore/");
-    console.log(response.data);
+    try {
+      const response = await axios.get("api/highScore");
+      this.highScores = response.data;
+    } catch (error) {
+      console.log(error);
+    }
 
-    let scoreData = await response.data;
+    // sort the high scores by time taken
+    this.highScores.sort((a, b) => a.timeTaken - b.timeTaken);
 
-    // fix the .sort method TypeError: n.sort is not a function
-    this.highScores = scoreData.sort((a, b) => a.timeTaken - b.timeTaken).slice(0, 10);
+    // only show the top 10 scores
+    this.highScores = this.highScores.slice(0, 10);
   },
 
   methods: {
