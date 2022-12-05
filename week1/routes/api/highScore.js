@@ -7,12 +7,12 @@ const router = Router();
 // @desc    Get all high scores
 // @access  Public
 router.get("/highScore", async (req, res) => {
+  // sort the high scores by time taken and only return the top 10
   try {
-    const highScore = await HighScore.find();
-    if (!highScore) throw Error("No high scores");
-    res.status(200).json(highScore);
-  } catch (e) {
-    res.status(400).json({ msg: e.message });
+    const highScores = await HighScore.find().sort({ timeTaken: 1 }).limit(12);
+    res.json(highScores);
+  } catch (err) {
+    res.status(404).json({ nohighscoresfound: "No high scores found" });
   }
 });
 

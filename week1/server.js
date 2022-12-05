@@ -16,24 +16,17 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 app.use(cors());
-
 // use tiny to log only the request method and the status code
 app.use(morgan("tiny"));
 app.use(bodyParser.json());
 
 // chek if we are in production
 if (process.env.NODE_ENV === "production") {
-// check if we are in production mode
   app.use(express.static("client/dist"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
   });
 }
-
-// test if server is running and connected to mongoDB
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
 // app.get("/", (req, res) => {
 //   res.send("Hello World!");
@@ -51,12 +44,8 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log("MongoDB connected..."))
-  .then(() => {
-    // log uri to console
-    console.log(`MongoDB connected to ${mongoURI}`);
-  })
   .catch((err) => console.log(err));
 
 app.listen(PORT, () => {
-  console.log(`Example app listening at ${PORT}`);
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });

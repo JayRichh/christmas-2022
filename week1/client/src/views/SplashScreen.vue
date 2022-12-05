@@ -13,9 +13,7 @@ export default {
   async mounted() {
     try {
       const response = await axios.get("api/highScore");
-      this.highScores = response.data
-        .sort((a, b) => a.timeTaken - b.timeTaken)
-        .slice(0, 10);
+      this.highScores = response.data;
     } catch (error) {
       console.log(error);
     }
