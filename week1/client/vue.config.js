@@ -1,11 +1,14 @@
+// configure webpack-dev-server behavior & runtimeCompiler
+
 module.exports = {
-  configureWebpack: {
-    devServer: {
-      proxy: {
-        "/api": {
-          target: "http://localhost:3000",
-        },
-      },
-    },
+  runtimeCompiler: true,
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        ws: true,
+        changeOrigin: true
+      }
+    }
   },
 };
