@@ -13,6 +13,7 @@ export default {
   async mounted() {
     try {
       const response = await axios.get("api/highScore");
+      console.log(response.data);
       this.highScores = response.data;
     } catch (error) {
       console.log(error);
